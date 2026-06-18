@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTBD & Value Proposition - Faculty of Liberal Arts</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #3b82f6;
+            color: #1d4ed8;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 pb-12">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-amber-400 p-2 rounded-lg text-slate-900">
+                    <i data-lucide="sparkles" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide">Liberal Arts for Business</h1>
+                    <p class="text-xs text-blue-200">เมื่อวิจัยสายมนุษยศาสตร์ตอบโจทย์ตรงจุดให้ภาคเอกชน</p>
+                </div>
+            </div>
+            <!-- Tab Controls -->
+            <div class="flex bg-white/10 p-1 rounded-full backdrop-blur-sm">
+                <button onclick="switchTab('profile')" id="btn-tab-profile" class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-900 shadow-md">
+                    🎯 แผ่นที่ 1: Customer
+                </button>
+                <button onclick="switchTab('value')" id="btn-tab-value" class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 text-white hover:bg-white/10">
+                    💎 แผ่นที่ 2: MULA
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 mt-8">
+
+        <!-- Intro Banner -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 mb-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="max-w-2xl">
+                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full font-semibold uppercase">JTBD Interactive Map</span>
+                <h2 class="text-2xl font-bold mt-2 text-slate-900">มองหา "งาน" ที่ลูกค้า "แหล่งทุน" (เอกชน) อยากมาจ้างศิลปศาสตร์แก้ปัญหา!</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                    แปลงอินไซต์ความต้องการจริงของภาคเอกชน ให้เป็นชุดเครื่องมือแก้พังและเพิ่มปังที่พร้อมใช้งานได้ทันที
+                </p>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="openQuickMatch()" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-medium px-5 py-3 rounded-xl shadow-lg shadow-orange-500/20 transition-all flex items-center gap-2">
+                    <i data-lucide="git-compare" class="w-5 h-5"></i>
+                    ลองจับคู่ทางแก้ปัญหา (Matchmaker)
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 1: CUSTOMER PROFILE ================= -->
+        <section id="tab-content-profile" class="space-y-8">
+            <div class="text-center max-w-xl mx-auto">
+                <h3 class="text-2xl font-bold text-slate-900">แผ่นที่ 1: Customer Profile</h3>
+                <p class="text-slate-500 text-sm mt-1">เจาะลึกอินไซต์ ปัญหาความกังวล และสิ่งที่ทำให้ลูกค้าเอกชนนอนไม่หลับ</p>
+            </div>
+
+            <!-- Grid of 3 Main Areas -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- COLUMN 1: CUSTOMER JOBS -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-indigo-600 p-4 text-white flex items-center gap-2">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Customer Jobs (สิ่งที่ต้องทำ)</h4>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p class="text-xs text-slate-400 font-medium">งานหรือภารกิจหลักที่ลูกค้าต้องทำสำเร็จ:</p>
+
+                        <!-- Card Job 1 -->
+                        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100 hover:border-indigo-300 transition-all cursor-pointer group" onclick="showJobDetail('job1')">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="bg-indigo-200 text-indigo-800 text-xs px-2.5 py-0.5 rounded-full font-semibold">ขยายตลาดต่างชาติ</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"ต้องพารอดในตลาดต่างแดน"</h5>
+                            <p class="text-xs text-slate-500 mt-1">อยากเปิดตลาดใหม่ ทำเว็บ คอนเทนต์ให้คนต่างถิ่นอ่านแล้วรู้สึกอินจริงๆ</p>
+                        </div>
+
+                        <!-- Card Job 2 -->
+                        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100 hover:border-indigo-300 transition-all cursor-pointer group" onclick="showJobDetail('job2')">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="bg-indigo-200 text-indigo-800 text-xs px-2.5 py-0.5 rounded-full font-semibold">สายเทค & AI</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"ต้องปั้น AI ให้คุยรู้เรื่อง"</h5>
+                            <p class="text-xs text-slate-500 mt-1">สอนแชทบอทหรือระบบ AI ให้พูดจาฉลาด เข้าใจอารมณ์คน และไม่หลุดเหยียด</p>
+                        </div>
+
+                        <!-- Card Job 3 -->
+                        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100 hover:border-indigo-300 transition-all cursor-pointer group" onclick="showJobDetail('job3')">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="bg-indigo-200 text-indigo-800 text-xs px-2.5 py-0.5 rounded-full font-semibold">คอนเทนต์ / ท่องเที่ยว</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"ต้องหาเรื่องเล่ามาอัปราคา"</h5>
+                            <p class="text-xs text-slate-500 mt-1">หาจุดขายแปลกใหม่ สตอรี่มีระดับเพื่อมัดใจลูกค้ากระเป๋าหนัก</p>
+                        </div>
+
+                        <!-- Card Job 4 -->
+                        <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100 hover:border-indigo-300 transition-all cursor-pointer group" onclick="showJobDetail('job4')">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="bg-indigo-200 text-indigo-800 text-xs px-2.5 py-0.5 rounded-full font-semibold">ESG & บริหารคน</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-indigo-400 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"ต้องคุมคนในออฟฟิศให้อยู่"</h5>
+                            <p class="text-xs text-slate-500 mt-1">เชื่อมคนในออฟฟิศต่างเจน และทำ CSR แบบที่คนรักแบรนด์จริง</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: CUSTOMER PAINS -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-rose-600 p-4 text-white flex items-center gap-2">
+                        <i data-lucide="frown" class="w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Customer Pains (ความเจ็บปวด)</h4>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p class="text-xs text-slate-400 font-medium">เรื่องน่าปวดหัวและสิ่งที่เขากลัวจะพัง:</p>
+
+                        <!-- Card Pain 1 -->
+                        <div class="p-4 bg-rose-50/50 rounded-xl border border-rose-100 hover:border-rose-300 transition-all cursor-pointer" onclick="openMatchFinder('pain1')">
+                            <div class="flex items-center gap-2 text-rose-700 font-semibold text-xs mb-1">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                                <span>กลัวทัวร์ลง แบรนด์พัง</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"ปล่อยมุกผิด วัฒนธรรมพลาด ดราม่าข้ามชาติ"</h5>
+                            <p class="text-xs text-slate-500 mt-1">แปลตามกูเกิลตรงๆ แล้วเด๋อ โดนคนท้องถิ่นแอนตี้โดยไม่ตั้งใจ</p>
+                        </div>
+
+                        <!-- Card Pain 2 -->
+                        <div class="p-4 bg-rose-50/50 rounded-xl border border-rose-100 hover:border-rose-300 transition-all cursor-pointer" onclick="openMatchFinder('pain2')">
+                            <div class="flex items-center gap-2 text-rose-700 font-semibold text-xs mb-1">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                                <span>บอทเอ๋อ คุยไม่รู้เรื่อง</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"AI ภาษาไทยตกหล่น เจอลูกค้าประชดแล้วค้าง"</h5>
+                            <p class="text-xs text-slate-500 mt-1">โปรแกรมเมอร์เก่งโค้ดแต่ AI สอบตกภาษาไทย สื่อสารหน้างานสะดุด</p>
+                        </div>
+
+                        <!-- Card Pain 3 -->
+                        <div class="p-4 bg-rose-50/50 rounded-xl border border-rose-100 hover:border-rose-300 transition-all cursor-pointer" onclick="openMatchFinder('pain3')">
+                            <div class="flex items-center gap-2 text-rose-700 font-semibold text-xs mb-1">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                                <span>สตอรี่ซ้ำซาก น่าเบื่อ</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"หาข้อมูลในกูเกิลซ้ำๆ แต่งเรื่องมั่วก็กลัวดราม่า"</h5>
+                            <p class="text-xs text-slate-500 mt-1">อยากโหนกระแส Soft Power แต่ไม่มีจุดขายที่แตกต่างของตัวเอง</p>
+                        </div>
+
+                        <!-- Card Pain 4 -->
+                        <div class="p-4 bg-rose-50/50 rounded-xl border border-rose-100 hover:border-rose-300 transition-all cursor-pointer" onclick="openMatchFinder('pain4')">
+                            <div class="flex items-center gap-2 text-rose-700 font-semibold text-xs mb-1">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                                <span>ในบ้านตีกัน นอกบ้านไม่รัก</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"คนลาออกบ่อย ทุ่ม CSR ไปเป็นล้านชาวบ้านก็ยังบ่น"</h5>
+                            <p class="text-xs text-slate-500 mt-1">พนักงานในบ้านคุยกันคนละทิศ นอกบ้านก็วัดผลโครงการสังคมไม่ได้จริง</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 3: CUSTOMER GAINS -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-emerald-600 p-4 text-white flex items-center gap-2">
+                        <i data-lucide="smile" class="w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Customer Gains (สิ่งที่อยากได้มาก)</h4>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p class="text-xs text-slate-400 font-medium">ผลประโยชน์หรือความฟินที่ลูกค้าอยากเห็น:</p>
+
+                        <!-- Card Gain 1 -->
+                        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100 hover:border-emerald-300 transition-all cursor-pointer" onclick="openMatchFinder('gain1')">
+                            <div class="flex items-center gap-2 text-emerald-700 font-semibold text-xs mb-1">
+                                <i data-lucide="award" class="w-4 h-4"></i>
+                                <span>แบรนด์ที่กลมกลืนท้องถิ่น</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"คู่มือกันตายลุยตลาดนอก ได้ใจคนท้องที่"</h5>
+                            <p class="text-xs text-slate-500 mt-1">ยิงโฆษณาครั้งแรกก็โดนใจ ได้ยอดขายตรงเป้าแบบเนียนตา</p>
+                        </div>
+
+                        <!-- Card Gain 2 -->
+                        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100 hover:border-emerald-300 transition-all cursor-pointer" onclick="openMatchFinder('gain2')">
+                            <div class="flex items-center gap-2 text-emerald-700 font-semibold text-xs mb-1">
+                                <i data-lucide="award" class="w-4 h-4"></i>
+                                <span>เทคโนโลยีที่น่ารักเป็นมิตร</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"AI มีความเข้าใจมนุษย์ คุยลื่นจนติดใจ"</h5>
+                            <p class="text-xs text-slate-500 mt-1">ผู้ใช้รู้สึกผูกพันและรู้สึกพึงพอใจสูงขึ้นเมื่อใช้งานบอทของเรา</p>
+                        </div>
+
+                        <!-- Card Gain 3 -->
+                        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100 hover:border-emerald-300 transition-all cursor-pointer" onclick="openMatchFinder('gain3')">
+                            <div class="flex items-center gap-2 text-emerald-700 font-semibold text-xs mb-1">
+                                <i data-lucide="award" class="w-4 h-4"></i>
+                                <span>มูลค่าสินค้าพุ่งกระฉูด</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"ได้ประวัติศาสตร์ลึกๆ มาทำเรื่องเล่าอัปราคา"</h5>
+                            <p class="text-xs text-slate-500 mt-1">เพิ่มค่าตัวบริการ/สินค้าจากทุนวัฒนธรรมที่ไม่ซ้ำใคร ได้ความหรูพรีเมียม</p>
+                        </div>
+
+                        <!-- Card Gain 4 -->
+                        <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100 hover:border-emerald-300 transition-all cursor-pointer" onclick="openMatchFinder('gain4')">
+                            <div class="flex items-center gap-2 text-emerald-700 font-semibold text-xs mb-1">
+                                <i data-lucide="award" class="w-4 h-4"></i>
+                                <span>องค์กรสงบ สังคมยกย่อง</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"สูตรคุยกันรู้เรื่อง พร้อมรายงานวัดผล ESG แน่นๆ"</h5>
+                            <p class="text-xs text-slate-500 mt-1">ลดความสูญเสียในใจคนทำงาน และมีตัวเลขชี้วัดไปกางโชว์บอร์ด</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 2: VALUE PROPOSITION ================= -->
+        <section id="tab-content-value" class="hidden space-y-8">
+            <div class="text-center max-w-xl mx-auto">
+                <h3 class="text-2xl font-bold text-slate-900">แผ่นที่ 2: Value Proposition</h3>
+                <p class="text-slate-500 text-sm mt-1">เพราะเราไม่ใช่แค่ผู้เขียนเล่มวิจัย แต่คือผู้ส่งมอบโซลูชันสำเร็จรูปเพื่อคุณ</p>
+            </div>
+
+            <!-- Grid of 3 Offering Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+               
+                <!-- COLUMN 1: PRODUCTS & SERVICES -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-blue-600 p-4 text-white flex items-center gap-2">
+                        <i data-lucide="package" class="w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Products & Services</h4>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p class="text-xs text-slate-400 font-medium">ชุดผลผลิตและเครื่องมือพร้อมใช้ทันที:</p>
+
+                        <!-- Product 1 -->
+                        <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100 hover:border-blue-300 transition-all">
+                            <span class="bg-blue-200 text-blue-800 text-xs px-2 py-0.5 rounded-full font-semibold">สายภาษา & AI</span>
+                            <h5 class="font-bold text-slate-800 mt-1.5">ชุดข้อมูลเทรน AI (Data & Playbook)</h5>
+                            <p class="text-xs text-slate-500 mt-1">คลังคำภาษาไทยสำเร็จรูปสำหรับเอาไปเทรนแชทบอท และคู่มือคุมโทนเสียงของแบรนด์</p>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100 hover:border-blue-300 transition-all">
+                            <span class="bg-blue-200 text-blue-800 text-xs px-2 py-0.5 rounded-full font-semibold">การสื่อสารสากล</span>
+                            <h5 class="font-bold text-slate-800 mt-1.5">คู่มือสื่อสารหน้างาน (Communication Toolkit)</h5>
+                            <p class="text-xs text-slate-500 mt-1">การ์ดคำและท่าทางช่วยชีวิตสำหรับพนักงานโรงแรม/สปา/โรงพยาบาล เพื่อมัดใจต่างชาติ</p>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100 hover:border-blue-300 transition-all">
+                            <span class="bg-blue-200 text-blue-800 text-xs px-2 py-0.5 rounded-full font-semibold">ซอฟต์พาวเวอร์ & วัฒนธรรม</span>
+                            <h5 class="font-bold text-slate-800 mt-1.5">คลังพล็อตเรื่อง/สตอรี่วัฒนธรรม (Content IP)</h5>
+                            <p class="text-xs text-slate-500 mt-1">วัตถุดิบและเกร็ดเชิงลึกทางวัฒนธรรมที่ถูกย่อยแล้ว แบรนด์หยิบไปพรีเซนต์ต่อได้ทันที</p>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100 hover:border-blue-300 transition-all">
+                            <span class="bg-blue-200 text-blue-800 text-xs px-2 py-0.5 rounded-full font-semibold">จิตวิทยา & ESG</span>
+                            <h5 class="font-bold text-slate-800 mt-1.5">ซอฟต์แวร์วัดใจคนทำงาน (Screening Tool)</h5>
+                            <p class="text-xs text-slate-500 mt-1">แบบทดสอบและแดชบอร์ดวัดดัชนีความสุข ป้องกันพนักงานหมดไฟแบบอัตโนมัติ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: PAIN RELIEVERS -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-amber-600 p-4 text-white flex items-center gap-2">
+                        <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Pain Relievers</h4>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p class="text-xs text-slate-400 font-medium">วิจัยแก้ไขปัญหา อุดรูพังระดับองค์กร:</p>
+
+                        <!-- Reliever 1 -->
+                        <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-100 hover:border-amber-300 transition-all">
+                            <div class="flex items-center gap-2 text-amber-700 font-semibold text-xs mb-1">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                                <span>บริการตรวจสแกนภาษา</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"สแกนเช็กคำศัพท์ คอนเทนต์... กันทัวร์ลง"</h5>
+                            <p class="text-xs text-slate-500 mt-1">ตรวจสอบความสุ่มเสี่ยงทางภาษาก่อนปล่อยชิ้นงานสู่สายตาสาธารณะ ลดโอกาสทำแบรนด์พัง</p>
+                        </div>
+
+                        <!-- Reliever 2 -->
+                        <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-100 hover:border-amber-300 transition-all">
+                            <div class="flex items-center gap-2 text-amber-700 font-semibold text-xs mb-1">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                                <span>พี่เลี้ยงผู้บริหารข้ามชาติ</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"สลายปัญหาเกาเหลาวัฒนธรรมในออฟฟิศ"</h5>
+                            <p class="text-xs text-slate-500 mt-1">ช่วยติวผู้บริหารต่างชาติและวางระบบสื่อสารใหม่ ให้หัวหน้าไทย-ต่างชาติทำงานร่วมกันราบรื่น</p>
+                        </div>
+
+                        <!-- Reliever 3 -->
+                        <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-100 hover:border-amber-300 transition-all">
+                            <div class="flex items-center gap-2 text-amber-700 font-semibold text-xs mb-1">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                                <span>วิจัยความเป๊ะของการผลิตสื่อ</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"วิจัยชี้ขาด มั่นใจชัวร์ว่าข้อมูลไม่มั่วดราม่า"</h5>
+                            <p class="text-xs text-slate-500 mt-1">มีนักวิจัยสายตรงรับรองความถูกต้องของประวัติศาสตร์หรือคติชนให้กับซีรีส์ โรงแรม หรือพล็อตงานบันเทิง</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 3: GAIN CREATORS -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-violet-600 p-4 text-white flex items-center gap-2">
+                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                        <h4 class="font-bold text-lg">Gain Creators</h4>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p class="text-xs text-slate-400 font-medium">ทีมวิจัยช่วยเสริมทัพ เพิ่มยอด และก้าวล้ำหน้าคู่แข่ง:</p>
+
+                        <!-- Creator 1 -->
+                        <div class="p-4 bg-violet-50/50 rounded-xl border border-violet-100 hover:border-violet-300 transition-all">
+                            <div class="flex items-center gap-2 text-violet-700 font-semibold text-xs mb-1">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                <span>สร้างคาแรกเตอร์แบรนด์แสนน่ารัก</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"เติมเสน่ห์และหัวใจให้ AI ทำงานได้แบบมนุษย์จริงๆ"</h5>
+                            <p class="text-xs text-slate-500 mt-1">ออกแบบคลังโต้ตอบให้แชทบอทมีความเป็นมิตรและเป็นธรรมชาติ จนผู้ใช้งานติดใจกลับมาซ้ำ</p>
+                        </div>
+
+                        <!-- Creator 2 -->
+                        <div class="p-4 bg-violet-50/50 rounded-xl border border-violet-100 hover:border-violet-300 transition-all">
+                            <div class="flex items-center gap-2 text-violet-700 font-semibold text-xs mb-1">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                <span>การสร้างเรื่องเล่าพรีเมียม</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"เปลี่ยนประวัติศาสตร์ลึกๆ ให้กลายเป็นเงิน"</h5>
+                            <p class="text-xs text-slate-500 mt-1">ใช้ทุนทางวัฒนธรรมมาอัปราคาสินค้า บริการ หรือสร้างกิมมิคการท่องเที่ยวแบบระดับไฮเอนด์</p>
+                        </div>
+
+                        <!-- Creator 3 -->
+                        <div class="p-4 bg-violet-50/50 rounded-xl border border-violet-100 hover:border-violet-300 transition-all">
+                            <div class="flex items-center gap-2 text-violet-700 font-semibold text-xs mb-1">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                <span>เปลี่ยนความรู้สึกมาเป็นตัวเลข</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800">"วัดผลลัพธ์โครงการสังคม (Social Impact) เป็นสถิติ"</h5>
+                            <p class="text-xs text-slate-500 mt-1">ออกแบบตัวประเมินโครงการ CSR ให้ออกมาเป็นตัวเลขทางสถิติและตัวเงินที่จับต้องได้เพื่อส่งงานบอร์ด</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= MODALS & POPUPS ================= -->
+
+    <!-- Job Detail Modal -->
+    <div id="job-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl transform scale-95 transition-all">
+            <div id="job-modal-header" class="p-6 text-white flex justify-between items-center">
+                <h4 id="job-modal-title" class="text-lg font-bold"></h4>
+                <button onclick="closeJobModal()" class="bg-white/20 hover:bg-white/30 p-1.5 rounded-lg transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4 text-slate-700">
+                <div>
+                    <h5 class="text-xs font-semibold uppercase text-slate-400">เป้าหมายสูงสุดของลูกค้ากลุ่มนี้:</h5>
+                    <p id="job-modal-desc" class="mt-1 font-medium text-slate-900"></p>
+                </div>
+                <hr class="border-slate-100">
+                <div>
+                    <h5 class="text-xs font-semibold uppercase text-slate-400">🔍 จุดเด่นวิจัยศิลปศาสตร์ที่ตอบโจทย์:</h5>
+                    <ul id="job-modal-list" class="list-disc pl-5 mt-2 space-y-1.5 text-sm text-slate-600">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matchmaker Interactive Modal -->
+    <div id="matchmaker-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-3xl w-full h-[90vh] md:h-auto md:max-h-[85vh] overflow-hidden shadow-2xl flex flex-col">
+            <!-- Header -->
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-gradient-to-r from-blue-900 to-indigo-900 text-white">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="git-compare" class="w-5 h-5 text-amber-400"></i>
+                    <h3 class="text-lg font-bold">ศิลปศาสตร์ Matchmaker</h3>
+                </div>
+                <button onclick="closeMatchmaker()" class="bg-white/20 hover:bg-white/30 p-1.5 rounded-lg transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Content Area (Scrollable if too long on mobile) -->
+            <div class="p-6 overflow-y-auto space-y-6 flex-1 bg-slate-50">
+                <p class="text-sm text-slate-500">
+                    💡 เลือกปัญหา (Pain) หรือ ความอยากสำเร็จ (Gain) ของลูกค้า เพื่อดูว่าคณะของเราจะแก้ปัญหานั้นให้ออกมาเป็นโปรดักส์และงานวิจัยที่จับต้องได้จริงอย่างไร!
+                </p>
+
+                <!-- Step 1: Select Problem -->
+                <div>
+                    <h4 class="text-sm font-semibold text-slate-600 uppercase mb-3">ขั้นตอนที่ 1: เลือกความกังวลหรือเป้าหมายที่อยากแก้</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                       
+                        <!-- Pain options -->
+                        <button onclick="selectMatchItem('pain1')" id="match-btn-pain1" class="p-3 text-left border rounded-xl bg-white hover:bg-rose-50 border-slate-200 hover:border-rose-300 transition-all text-sm group">
+                            <span class="text-rose-600 font-bold text-xs">Pains</span>
+                            <h5 class="font-bold text-slate-800 mt-1">กลัวทัวร์ลง/แบรนด์พังเวลาไปเมืองนอก</h5>
+                        </button>
+                       
+                        <button onclick="selectMatchItem('pain2')" id="match-btn-pain2" class="p-3 text-left border rounded-xl bg-white hover:bg-rose-50 border-slate-200 hover:border-rose-300 transition-all text-sm group">
+                            <span class="text-rose-600 font-bold text-xs">Pains</span>
+                            <h5 class="font-bold text-slate-800 mt-1">แชทบอท / AI พูดจาเด๋อด๋าค้างคาในภาษาไทย</h5>
+                        </button>
+
+                        <!-- Gain options -->
+                        <button onclick="selectMatchItem('gain3')" id="match-btn-gain3" class="p-3 text-left border rounded-xl bg-white hover:bg-emerald-50 border-slate-200 hover:border-emerald-300 transition-all text-sm group">
+                            <span class="text-emerald-600 font-bold text-xs">Gains</span>
+                            <h5 class="font-bold text-slate-800 mt-1">อยากเพิ่มราคาสินค้า/บริการ ด้วยคอนเทนต์มีระดับ</h5>
+                        </button>
+
+                        <button onclick="selectMatchItem('gain4')" id="match-btn-gain4" class="p-3 text-left border rounded-xl bg-white hover:bg-emerald-50 border-slate-200 hover:border-emerald-300 transition-all text-sm group">
+                            <span class="text-emerald-600 font-bold text-xs">Gains</span>
+                            <h5 class="font-bold text-slate-800 mt-1">อยากเชื่อมสัมพันธ์คนในออฟฟิศและวัดผล CSR</h5>
+                        </button>
+
+                    </div>
+                </div>
+
+                <!-- Step 2: Display Solution Map (Dynamic) -->
+                <div id="match-result-box" class="hidden">
+                    <div class="bg-white p-6 rounded-2xl border border-blue-200 shadow-sm space-y-4">
+                        <div class="flex items-center gap-2 text-indigo-700 font-bold">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-emerald-500"></i>
+                            <span class="text-lg">วิธีรักษาและอัปเกรดความปังจากศิลปศาสตร์:</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Solution Details -->
+                            <div class="bg-indigo-50/50 p-4 rounded-xl space-y-2">
+                                <h5 class="font-bold text-indigo-900 text-sm">🛠️ บริการรักษาตรงจุด (Our Answer)</h5>
+                                <p id="match-solution" class="text-sm text-slate-700"></p>
+                            </div>
+
+                            <!-- Deliverables (Products/Services) -->
+                            <div class="bg-blue-50/50 p-4 rounded-xl space-y-2">
+                                <h5 class="font-bold text-blue-900 text-sm">📦 โปรดักส์สำเร็จรูปที่จับต้องได้</h5>
+                                <p id="match-product" class="text-sm text-slate-700 font-medium"></p>
+                                <p id="match-product-desc" class="text-xs text-slate-500"></p>
+                            </div>
+                        </div>
+
+                        <!-- Expert Field Badge -->
+                        <div class="flex flex-wrap items-center gap-2 pt-2">
+                            <span class="text-xs text-slate-500 font-semibold uppercase">🔬 สายความเชี่ยวชาญนักวิจัยที่เกี่ยวข้อง:</span>
+                            <span id="match-expert-badge" class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded-full font-bold"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="p-4 bg-slate-100 border-t border-slate-200 flex justify-end">
+                <button onclick="closeMatchmaker()" class="bg-slate-700 hover:bg-slate-800 text-white font-semibold px-4 py-2 rounded-lg text-sm">
+                    ปิดหน้าต่างนี้
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize lucide icons
+        lucide.createIcons();
+
+        // Switch Tab Logic
+        function switchTab(tab) {
+            const btnProfile = document.getElementById('btn-tab-profile');
+            const btnValue = document.getElementById('btn-tab-value');
+            const contentProfile = document.getElementById('tab-content-profile');
+            const contentValue = document.getElementById('tab-content-value');
+
+            if (tab === 'profile') {
+                btnProfile.className = "px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-900 shadow-md";
+                btnValue.className = "px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 text-white hover:bg-white/10";
+                contentProfile.classList.remove('hidden');
+                contentValue.classList.add('hidden');
+            } else {
+                btnValue.className = "px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-900 shadow-md";
+                btnProfile.className = "px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 text-white hover:bg-white/10";
+                contentValue.classList.remove('hidden');
+                contentProfile.classList.add('hidden');
+            }
+        }
+
+        // Job details data
+        const jobData = {
+            job1: {
+                title: "ขยายตลาดไปต่างแดน (Global Expander)",
+                headerBg: "bg-indigo-600",
+                desc: "ต้องการขยายธุรกิจ แบรนด์ สินค้า คอนเทนต์ท่องเที่ยวหรือบริการไปต่างประเทศอย่างมั่นใจ ไม่ออกมาหน้าแตกในมิติวัฒนธรรมที่ลึกซึ้ง",
+                details: [
+                    "งานวิจัยและวิเคราะห์พฤติกรรมผู้บริโภคข้ามวัฒนธรรม (Cross-cultural Research)",
+                    "การตรวจสอบความสุ่มเสี่ยงของเนื้อหา (Cultural Audit) เพื่อเช็กก่อนปล่อยสู่ต่างชาติ",
+                    "การแปลเชิงธุรกิจและการปรับแต่งเนื้อหาให้เข้ากับจริตคนท้องถิ่น (Localization Research)"
+                ]
+            },
+            job2: {
+                title: "กลุ่มผู้พัฒนาเทคโนโลยี (Tech & AI Innovator)",
+                headerBg: "bg-blue-600",
+                desc: "ต้องการอัปเกรดแชทบอท, Voice Command, หรือ AI ให้คุยกับลูกค้าชาวไทยและเพื่อนบ้านรู้เรื่อง เป็นมิตร ไม่พ่นคำหยาบหรือทำลายแบรนด์",
+                details: [
+                    "บริการสร้างคลังประโยคสแลง อารมณ์ คำย่อ และประชดประชัน สำหรับเทรน AI",
+                    "งานออกแบบโครงสร้างและวางลำดับความหมายเพื่อเขียน UX Writing ให้แอปใช้ง่ายและเป็นมิตร",
+                    "งานวิจัยด้านเทคโนโลยีและจริยธรรมเพื่อความปลอดภัยของคอนเทนต์ AI"
+                ]
+            },
+            job3: {
+                title: "ธุรกิจท่องเที่ยว ครีเอทีฟ & สื่อสารสร้างสรรค์ (Creative & Hospitality)",
+                headerBg: "bg-amber-600",
+                desc: "ต้องการอัปค่าตัวสินค้า บริการ โรงแรม หรือเพิ่มความน่าสนใจให้งานเขียน ซีรีส์ และบทละคร ด้วยการชูจุดเด่นทางวัฒนธรรมที่มีน้ำหนักจริง ไม่เฟก",
+                details: [
+                    "งานวิจัยประวัติศาสตร์ คติชน ท้องถิ่น สำหรับสร้างตำนานให้ผลิตภัณฑ์ (Storytelling)",
+                    "การตรวจสอบความถูกต้องทางมรดกวัฒนธรรม ป้องกันดราม่าการบิดเบือนข้อมูลสำคัญ",
+                    "การสร้างพล็อตเรื่อง ทรัพย์สินทางปัญญาทางวัฒนธรรม (Content IP) ให้ค่ายหนัง/เกมนำไปพัฒนาต่อ"
+                ]
+            },
+            job4: {
+                title: "องค์กรใหญ่ เน้นด้านESG และการบริหารภายใน (ESG & Corporate Transformer)",
+                headerBg: "bg-emerald-600",
+                desc: "ต้องการทำโครงการช่วยเหลือสิ่งแวดล้อมและสังคมที่วัดผลได้ เพื่อให้สอดรับกับวิถี ESG และมีข้อมูลตัวเลขรายงานที่ตอบสนองความคาดหวังของสังคม",
+                details: [
+                    "งานวิจัยเพื่อประเมินระดับความพึงพอใจและสุขภาพจิตในองค์กรที่มีความหลากหลายของเจเนอเรชัน",
+                    "การออกแบบและพัฒนาโมเดลหรือระบบตรวจสอบ (Social Impact Assessment) เพื่อวัดความรักของคนพื้นที่รอบโครงการ",
+                    "บริการอบรมเชิงลึกเพื่อปรับระดับกระบวนการคิดและทักษะการสื่อสารที่ตอบโจทย์ความร่วมมือ"
+                ]
+            }
+        };
+
+        // Open Job Detail Modal
+        function showJobDetail(jobKey) {
+            const data = jobData[jobKey];
+            if (!data) return;
+
+            document.getElementById('job-modal-title').innerText = data.title;
+            document.getElementById('job-modal-header').className = `p-6 text-white flex justify-between items-center ${data.headerBg}`;
+            document.getElementById('job-modal-desc').innerText = data.desc;
+
+            const listEl = document.getElementById('job-modal-list');
+            listEl.innerHTML = '';
+            data.details.forEach(detail => {
+                const li = document.createElement('li');
+                li.innerText = detail;
+                listEl.appendChild(li);
+            });
+
+            const modal = document.getElementById('job-modal');
+            modal.classList.remove('hidden');
+        }
+
+        // Close Job Modal
+        function closeJobModal() {
+            document.getElementById('job-modal').classList.add('hidden');
+        }
+
+        // Matchmaker Quick Opening
+        function openQuickMatch() {
+            openMatchFinder(null);
+        }
+
+        // Open Matchmaker with preset
+        function openMatchFinder(presetId) {
+            const modal = document.getElementById('matchmaker-modal');
+            modal.classList.remove('hidden');
+           
+            // If preset is supplied, auto-trigger click after a brief moment
+            if (presetId) {
+                setTimeout(() => {
+                    selectMatchItem(presetId);
+                }, 100);
+            }
+        }
+
+        function closeMatchmaker() {
+            document.getElementById('matchmaker-modal').classList.add('hidden');
+        }
+
+        // Data for matching system
+        const matchDatabase = {
+            pain1: {
+                solution: "ใช้ทีมนักวิจัยแปลตรงจริต พร้อมวิเคราะห์ความเหมาะสมทางวัฒนธรรม (Cultural Audit) เพื่อสแกนชิ้นงานโฆษณา คอนเทนต์ หรือตัวแพลตฟอร์มของคุณก่อนปล่อยจริง เคลียร์ด่านป้องกันทัวร์ลงร้อยเปอร์เซ็นต์",
+                product: "คู่มือแบรนด์ภาษาเพื่อการโกอินเตอร์ (Brand Voice Playbook)",
+                productDesc: "เอกสารสรุปคำที่ควรใช้-ต้องเลี่ยง กิตติศัพท์และลักษณะทางจิตวิทยาของชาวต่างชาติกลุ่มเป้าหมาย เพื่อใช้คุมโทนแคมเปญให้ไม่มีคำหยาบ ดราม่า หรือเด๋อเปิ่น",
+                expert: "สายภาษาศาสตร์ / การแปลและการสื่อสารข้ามวัฒนธรรม"
+            },
+            pain2: {
+                solution: "เอานักวิจัยภาษาศาสตร์ประยุกต์และคอมพิวเตอร์ ทำความสะอาดและป้อนชุดคำสแลง วาทกรรม หรือวิถีภาษาของมนุษย์เพื่อให้ AI มีความเป็นธรรมชาติ และคุ้มครองคำที่ไม่สมควรให้ระบบคัดกรองทันที",
+                product: "ชุดข้อมูลภาษาไทยและภาษาเพื่อนบ้านเทรน AI (Data NLP)",
+                productDesc: "คลังข้อมูลคำพูด อารมณ์ และบทพูดจำลองที่ติดป้ายบอกประเภทภาษาเรียบร้อย เพื่อให้ระบบเอาไปประมวลผลต่อได้ฉลาดและรู้ลึกยิ่งขึ้น",
+                expert: "สายภาษาศาสตร์ / ภาษาศาสตร์ประยุกต์ / ภาษาอังกฤษและภาษาอาเซียน"
+            },
+            gain3: {
+                solution: "เปลี่ยนสินค้าและบริการทั่วไปให้พรีเมียมด้วยประวัติศาสตร์ลึกลับและคติชนที่ไม่ซ้ำใคร ส่งเสริมภาพลักษณ์ Soft Power ที่ทรงเกียรติและแฝงอารมณ์ความประทับใจลึกซึ้ง",
+                product: "แพลตฟอร์มคลังวัตถุดิบและพล็อตเรื่องวัฒนธรรม (Cultural Content IP)",
+                productDesc: "การคัดเลือกเรื่องเล่า สูตรวิถีโบราณ หรือพล็อตเรื่องละครมาเก็บข้อมูลและนำมาจำหน่ายเพื่อให้องค์กรธุรกิจนำไปออกแบบต่อยอดเพิ่มมูลค่าแบบหรูหรา",
+                expert: "สายคติชน / ประวัติศาสตร์ประยุกต์ / วรรณกรรมศึกษากลุ่มลุ่มน้ำโขงและเอเชียใต้"
+            },
+            gain4: {
+                solution: "สลายรอยต่อพนักงานต่างเจนในออฟฟิศด้วยโครงสร้างจิตวิทยาและการสื่อสาร พร้อมสร้างเฟรมเวิร์กการประเมินโครงการตอบแทนสังคม (CSR) จากนามธรรมให้ประมวลผลเป็นตัวเลขจริงส่งผู้บริหาร",
+                product: "ระบบแบบประเมินดัชนีความยืดหยุ่นและสุขภาวะสังคม (Social Impact Tracker)",
+                productDesc: "แดชบอร์ดตรวจสอบสุขภาพจิตภายในออฟฟิศ และโมเดลการคำนวณผลประโยชน์และสุขภาวะของชุมชนรอบโรงงานหรือองค์กรธุรกิจออกมาเป็นมูลค่าการเงินและอัตราความประทับใจ",
+                expert: "สายจิตวิทยา / การวิเคราะห์ผลลัพธ์ทางสังคม / การบริหารความหลากหลาย"
+            }
+        };
+
+        // Handle Match Selection
+        function selectMatchItem(id) {
+            // Mapping for alternative clicks (Gains map to same core structure as pains)
+            let databaseId = id;
+            if (id === 'gain1') databaseId = 'pain1';
+            if (id === 'gain2') databaseId = 'pain2';
+
+            // Visual active button highlight style
+            const matchButtons = ['match-btn-pain1', 'match-btn-pain2', 'match-btn-gain3', 'match-btn-gain4'];
+            matchButtons.forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                if (btn) {
+                    btn.classList.remove('ring-4', 'ring-indigo-200', 'border-indigo-500', 'bg-indigo-50/30');
+                }
+            });
+
+            // Highlight chosen
+            const chosenBtn = document.getElementById(`match-btn-${databaseId}`);
+            if (chosenBtn) {
+                chosenBtn.classList.add('ring-4', 'ring-indigo-200', 'border-indigo-500', 'bg-indigo-50/30');
+            }
+
+            // Populate and show details
+            const data = matchDatabase[databaseId];
+            if (data) {
+                document.getElementById('match-solution').innerText = data.solution;
+                document.getElementById('match-product').innerText = data.product;
+                document.getElementById('match-product-desc').innerText = data.productDesc;
+                document.getElementById('match-expert-badge').innerText = data.expert;
+
+                const resultBox = document.getElementById('match-result-box');
+                resultBox.classList.remove('hidden');
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+    </script>
+</body>
+</html>
+						
